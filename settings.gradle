@@ -1,0 +1,35 @@
+
+// Recursively rename build files for all child projects, grandchildren, etc
+def renameChildBuildFiles( project ) {
+    project.children.each { childProject ->
+        childProject.buildFileName = "${childProject.name}.gradle"
+        assert childProject.projectDir.isDirectory()
+        assert childProject.buildFile.isFile()
+        renameChildBuildFiles( childProject )
+    }
+}
+renameChildBuildFiles( rootProject )
+
+// Add buildscript dependencies
+gradle.allprojects {
+    buildscript {
+        dependencies {
+            classpath "com.mxi.devtools:mxjava:${devtoolsVersion}";
+            classpath "com.mxi.eclipse-4.4.0:mxeclipseworkspace:${eclipseWorkspaceVersion}";
+        }
+    }
+}
+
+// Set common properties
+gradle.allprojects {
+    group = projectGroup
+    version = ext.projectVersion;
+
+    ext.javaVersion = "1.8.0_210".toString();
+    ext.javaVersionLabel = "${javaRelease}u${javaUpdate}".toString();
+    ext.jdkInstallPath = "H:\\Tools\\java".toString();
+    ext.jreVersion = "${javaVersion}".toString();
+    ext.jreHome = "${jdkInstallPath}".toString();
+
+    ext.isCIBuild = ext.has('buildType') && !buildType.equals("development");
+}

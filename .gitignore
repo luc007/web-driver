@@ -1,0 +1,25 @@
+# Ignore .gradle working directories.
+.gradle
+
+# If someone changes the wrapper to unpackage Gradle in PACKAGE, we'll need to ignore this
+/wrapper/
+
+# Ignore build folders where Gradle creates all artifacts.
+**/build/
+
+# Ignore Gradle-generated eclipse project files.
+**/.metadata/
+**/.settings/
+**/.classpath
+**/.project
+**/velocity.log
+
+
+# In case SVN files got copied in, ignore .svn and _svn folders.
+**/.svn/
+**/_svn/
+
+# Ignore settings file created when you use 'gradle --gui'.
+/gradle-app.setting
+*.log
+**/bin/

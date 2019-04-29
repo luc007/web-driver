@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="web-driver:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/web_driver_jar</output-path>
+    <root id="archive" name="web-driver.jar" />
+  </artifact>
+</component>

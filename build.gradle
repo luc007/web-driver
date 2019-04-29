@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'web-driver'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+dependencies {
+    compile 'org.seleniumhq.selenium:selenium-api:3.141.59'
+    compile 'org.seleniumhq.selenium:selenium-support:3.141.59'
+    compile 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    compile 'javax.inject:javax.inject:1'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.12'
+
+    compile group: 'com.thoughtworks.selenium', name: 'com.springsource.com.thoughtworks.selenium', version: '1.0.1'
+
+    testCompile "junit:junit:4.12"
+}

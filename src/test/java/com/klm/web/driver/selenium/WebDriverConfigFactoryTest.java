@@ -2,10 +2,10 @@ package com.klm.web.driver.selenium;
 
 import com.thoughtworks.selenium.SeleniumException;
 import org.apache.commons.io.FileUtils;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -102,7 +102,7 @@ public class WebDriverConfigFactoryTest {
     }
 
 
-    @Before
+    @BeforeMethod
     public void setUp() throws Exception {
         System.clearProperty( WebDriverConfigFactory.WEBDRIVER_CONFIG_PROPERTIES_PROPERTY );
         System.clearProperty( WebDriverConfigFactory.WEBDRIVER_BROWSER_PROPERTTY );
